@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wish Card for Sister</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            padding: 28px 12px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: popIn 1s cubic-bezier(.68,-0.55,.27,1.55);
+            width: 95vw;
+            max-width: 370px;
+            min-width: 220px;
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.7); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        h1 {
+            color: #ff6f91;
+            font-size: 2em;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 8px #ffd6e0;
+            animation: bounce 1.2s infinite alternate;
+            word-break: break-word;
+        }
+        @keyframes bounce {
+            to { transform: translateY(-10px); }
+        }
+        #wish-message {
+            color: #333;
+            font-size: 1em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        button {
+            background: linear-gradient(90deg, #ff6f91, #ffb86c);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 24px;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #ffd6e0;
+            transition: transform 0.2s;
+            width: 90%;
+            max-width: 220px;
+        }
+        button:hover {
+            transform: scale(1.08);
+            background: linear-gradient(90deg, #ffb86c, #ff6f91);
+        }
+        .hide {
+            display: none;
+        }
+        #surprise {
+            margin-top: 18px;
+            animation: fadeIn 1s;
+        }
+        .confetti {
+            width: 100px;
+            margin-bottom: 8px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #ffd6e0;
+        }
+        .surprise-text {
+            font-size: 1.1em;
+            color: #ff6f91;
+            font-weight: bold;
+            animation: popIn 1s;
+        }
+        /* Balloons effect */
+        .balloons {
+            position: absolute;
+            left: 50%;
+            top: -50px;
+            transform: translateX(-50%);
+            width: 170px;
+            height: 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .balloon {
+            position: absolute;
+            bottom: 0;
+            width: 28px;
+            height: 38px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            background: radial-gradient(circle at 60% 40%, #fff 10%, transparent 70%), #ff6f91;
+            box-shadow: 0 2px 8px #ffd6e0;
+            animation: float 3s infinite ease-in-out;
+        }
+        .balloon:nth-child(2) { left: 38px; background: #ffb86c; animation-delay: 0.5s;}
+        .balloon:nth-child(3) { left: 76px; background: #6fcf97; animation-delay: 1s;}
+        .balloon:nth-child(4) { left: 114px; background: #56ccf2; animation-delay: 1.5s;}
+        .balloon:nth-child(5) { left: 150px; background: #f6e58d; animation-delay: 2s;}
+        @keyframes float {
+            0% { transform: translateY(0);}
+            50% { transform: translateY(-14px);}
+            100% { transform: translateY(0);}
+        }
+        .balloon::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            width: 2px;
+            height: 12px;
+            background: #aaa;
+            transform: translateX(-50%);
+        }
+        @media (max-width: 500px) {
+            .card {
+                padding: 16px 4vw;
+                max-width: 98vw;
+            }
+            h1 {
+                font-size: 1.3em;
+            }
+            #wish-message {
+                font-size: 0.95em;
+            }
+            .confetti {
+                width: 70px;
+            }
+            .balloons {
+                width: 120px;
+                top: -30px;
+            }
+            .balloon {
+                width: 18px;
+                height: 24px;
+            }
+            .balloon:nth-child(2) { left: 28px;}
+            .balloon:nth-child(3) { left: 56px;}
+            .balloon:nth-child(4) { left: 84px;}
+            .balloon:nth-child(5) { left: 110px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="balloons">
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+        </div>
+        <h1 id="main-heading">Happy Birthday, Sister!</h1>
+        <p id="wish-message">
+            Wishing the most amazing sister a wonderful birthday filled with laughter, joy, and all your favorite things! You’re not just my sister, but also my best friend. Have a magical day!
+        </p>
+        <button onclick="showSurprise()">🎉 Surprise Me!</button>
+        <div id="surprise" class="hide">
+            <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Confetti" class="confetti">
+            <p class="surprise-text">You’re the best sister ever! 💖</p>
+        </div>
+    </div>
+    <script>
+        function showSurprise() {
+            document.getElementById('surprise').classList.remove('hide');
+            document.querySelector('button').disabled = true;
+            document.querySelector('button').innerText = "🎊 Enjoy!";
+        }
+    </script>
+</body>
+</html>
