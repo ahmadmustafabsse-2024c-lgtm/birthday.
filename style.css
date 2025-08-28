@@ -1,0 +1,87 @@
+body {
+  background: linear-gradient(135deg, #ffd6e5 0%, #ffe8d1 100%);
+  font-family: 'Segoe UI', cursive, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('https://cdn.pixabay.com/photo/2016/03/27/19/29/cake-1283821_960_720.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-blend-mode: overlay;
+}
+
+.card {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(255, 90, 157, 0.18);
+  text-align: center;
+  position: relative;
+  min-width: 340px;
+  max-width: 400px;
+}
+
+.balloons {
+  height: 60px;
+  margin-bottom: 14px;
+  background: url('https://cdn.pixabay.com/photo/2016/03/31/18/26/balloons-1293781_960_720.png') no-repeat center;
+  background-size: contain;
+}
+
+h1 {
+  color: #ff5a9d;
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+  font-family: 'Pacifico', cursive;
+}
+
+#wish-message {
+  font-size: 1.16rem;
+  color: #555;
+  margin-bottom: 1.3rem;
+}
+
+button {
+  background: linear-gradient(90deg, #ff5a9d 0%, #ffb347 100%);
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 28px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255, 90, 157, 0.15);
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #ffb347 0%, #ff5a9d 100%);
+}
+
+#surprise.hide {
+  display: none;
+}
+
+#surprise {
+  margin-top: 1.5rem;
+  animation: fadeIn 1s;
+}
+
+.confetti {
+  width: 120px;
+  margin: 0 auto 0.5rem;
+  display: block;
+}
+
+.surprise-text {
+  color: #ff5a9d;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 0.2rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
