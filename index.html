@@ -1,189 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Wish Card for Sister</title>
-    <style>
-        body {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .card {
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-            padding: 28px 12px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            animation: popIn 1s cubic-bezier(.68,-0.55,.27,1.55);
-            width: 95vw;
-            max-width: 370px;
-            min-width: 220px;
-        }
-        @keyframes popIn {
-            0% { transform: scale(0.7); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        h1 {
-            color: #ff6f91;
-            font-size: 2em;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 8px #ffd6e0;
-            animation: bounce 1.2s infinite alternate;
-            word-break: break-word;
-        }
-        @keyframes bounce {
-            to { transform: translateY(-10px); }
-        }
-        #wish-message {
-            color: #333;
-            font-size: 1em;
-            margin-bottom: 20px;
-            animation: fadeIn 2s;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        button {
-            background: linear-gradient(90deg, #ff6f91, #ffb86c);
-            color: #fff;
-            border: none;
-            border-radius: 25px;
-            padding: 10px 24px;
-            font-size: 1em;
-            cursor: pointer;
-            box-shadow: 0 2px 8px #ffd6e0;
-            transition: transform 0.2s;
-            width: 90%;
-            max-width: 220px;
-        }
-        button:hover {
-            transform: scale(1.08);
-            background: linear-gradient(90deg, #ffb86c, #ff6f91);
-        }
-        .hide {
-            display: none;
-        }
-        #surprise {
-            margin-top: 18px;
-            animation: fadeIn 1s;
-        }
-        .confetti {
-            width: 100px;
-            margin-bottom: 8px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px #ffd6e0;
-        }
-        .surprise-text {
-            font-size: 1.1em;
-            color: #ff6f91;
-            font-weight: bold;
-            animation: popIn 1s;
-        }
-        /* Balloons effect */
-        .balloons {
-            position: absolute;
-            left: 50%;
-            top: -50px;
-            transform: translateX(-50%);
-            width: 170px;
-            height: 60px;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .balloon {
-            position: absolute;
-            bottom: 0;
-            width: 28px;
-            height: 38px;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            background: radial-gradient(circle at 60% 40%, #fff 10%, transparent 70%), #ff6f91;
-            box-shadow: 0 2px 8px #ffd6e0;
-            animation: float 3s infinite ease-in-out;
-        }
-        .balloon:nth-child(2) { left: 38px; background: #ffb86c; animation-delay: 0.5s;}
-        .balloon:nth-child(3) { left: 76px; background: #6fcf97; animation-delay: 1s;}
-        .balloon:nth-child(4) { left: 114px; background: #56ccf2; animation-delay: 1.5s;}
-        .balloon:nth-child(5) { left: 150px; background: #f6e58d; animation-delay: 2s;}
-        @keyframes float {
-            0% { transform: translateY(0);}
-            50% { transform: translateY(-14px);}
-            100% { transform: translateY(0);}
-        }
-        .balloon::after {
-            content: '';
-            display: block;
-            position: absolute;
-            left: 50%;
-            bottom: -10px;
-            width: 2px;
-            height: 12px;
-            background: #aaa;
-            transform: translateX(-50%);
-        }
-        @media (max-width: 500px) {
-            .card {
-                padding: 16px 4vw;
-                max-width: 98vw;
-            }
-            h1 {
-                font-size: 1.3em;
-            }
-            #wish-message {
-                font-size: 0.95em;
-            }
-            .confetti {
-                width: 70px;
-            }
-            .balloons {
-                width: 120px;
-                top: -30px;
-            }
-            .balloon {
-                width: 18px;
-                height: 24px;
-            }
-            .balloon:nth-child(2) { left: 28px;}
-            .balloon:nth-child(3) { left: 56px;}
-            .balloon:nth-child(4) { left: 84px;}
-            .balloon:nth-child(5) { left: 110px;}
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Bestie 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f8e1f4 0%, #f9f6e7 100%);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .confetti {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .card {
+      background: #fff;
+      padding: 2.5rem 2rem 2rem 2rem;
+      border-radius: 30px;
+      box-shadow: 0 8px 32px rgba(255, 105, 180, 0.18), 0 1.5px 8px #f8bbd0;
+      text-align: center;
+      max-width: 420px;
+      position: relative;
+      border: 4px solid transparent;
+      animation: glow 2.5s infinite alternate;
+    }
+    @keyframes glow {
+      0% { box-shadow: 0 0 20px #ffb6b9, 0 1.5px 8px #f8bbd0; border-color: #fff; }
+      100% { box-shadow: 0 0 40px #ffb6b9, 0 1.5px 8px #f8bbd0; border-color: #ffb6b9; }
+    }
+    .card img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ffb6b9;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 16px #ffb6c1a0;
+    }
+    .card h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.3rem;
+      background: linear-gradient(90deg, #ff4e6a, #ffb6b9, #ff6f91);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      animation: birthdayText 2s infinite alternate;
+    }
+    @keyframes birthdayText {
+      0% { letter-spacing: 1px; filter: brightness(1); }
+      100% { letter-spacing: 4px; filter: brightness(1.2); }
+    }
+    .card p {
+      font-size: 1.15rem;
+      color: #555;
+      margin: 1rem 0;
+    }
+    .handwritten {
+      font-family: 'Pacifico', cursive;
+      color: #ff6f91;
+      font-size: 1.3rem;
+      margin: 1.2rem 0 0.5rem 0;
+    }
+    .heart {
+      font-size: 2.2rem;
+      color: #ff4e6a;
+      animation: beat 1s infinite;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 8px #ffb6b9);
+    }
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+    .surprise-btn {
+      background: linear-gradient(90deg, #ff6f91, #ffb6b9);
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 0.7rem 2rem;
+      font-size: 1.1rem;
+      font-family: 'Segoe UI', sans-serif;
+      cursor: pointer;
+      margin-top: 1rem;
+      box-shadow: 0 2px 8px #ffb6b9a0;
+      transition: transform 0.1s, box-shadow 0.2s;
+    }
+    .surprise-btn:active {
+      transform: scale(0.97);
+      box-shadow: 0 1px 4px #ffb6b9a0;
+    }
+    /* Modal Styles */
+    .modal-bg {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background: rgba(255, 182, 185, 0.25);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 8px 32px #ffb6b9a0;
+      text-align: center;
+      max-width: 350px;
+      position: relative;
+      animation: pop 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    .modal .heart {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: beat 1s infinite;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #ff6f91;
+      cursor: pointer;
+    }
+    @keyframes pop {
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-    <div class="card">
-        <div class="balloons">
-            <div class="balloon"></div>
-            <div class="balloon"></div>
-            <div class="balloon"></div>
-            <div class="balloon"></div>
-            <div class="balloon"></div>
-        </div>
-        <h1 id="main-heading">Happy Birthday, Sister!</h1>
-        <p id="wish-message">
-            Wishing the most amazing sister a wonderful birthday filled with laughter, joy, and all your favorite things! You’re not just my sister, but also my best friend. Have a magical day!
-        </p>
-        <button onclick="showSurprise()">🎉 Surprise Me!</button>
-        <div id="surprise" class="hide">
-            <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Confetti" class="confetti">
-            <p class="surprise-text">You’re the best sister ever! 💖</p>
-        </div>
+  <canvas class="confetti"></canvas>
+  <div class="card">
+    <img src="WhatsApp Image 2025-08-28 at 11.21.10 AM.jpeg" alt="Best Friend" />
+    <h1>Happy Birthday, MY LOVE! 🎂</h1>
+    <p>
+      Tu meri zindagi ki sabse khaas dost hai.<br>
+      Teri dosti mere liye sab kuch hai.<br>
+      Hamesha aise hi muskurati reh!
+    </p>
+    <div class="handwritten">
+      Teri dosti hi meri sabse badi khushi hai! 🤗
     </div>
-    <script>
-        function showSurprise() {
-            document.getElementById('surprise').classList.remove('hide');
-            document.querySelector('button').disabled = true;
-            document.querySelector('button').innerText = "🎊 Enjoy!";
+    <p class="heart">❤️❤️❤️</p>
+    <button class="surprise-btn" onclick="showSurprise()">Surprise!</button>
+  </div>
+  <div class="modal-bg" id="modalBg">
+    <div class="modal">
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <div class="heart">❤️</div>
+      <div style="font-family:'Pacifico',cursive;font-size:1.2rem;color:#ff6f91;">
+        Tere bina zindagi adhoori hai, Bestie!<br>
+        Thank you for always being there.<br>
+        <span style="font-size:1rem;color:#888;">~ by ZARRAR Malik</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Confetti animation
+    const canvas = document.querySelector('.confetti');
+    const ctx = canvas.getContext('2d');
+    let W = window.innerWidth, H = window.innerHeight;
+    canvas.width = W; canvas.height = H;
+    let confetti = [];
+    for(let i=0;i<150;i++){
+      confetti.push({
+        x: Math.random()*W,
+        y: Math.random()*H - H,
+        r: Math.random()*6+4,
+        d: Math.random()*150+50,
+        color: `hsl(${Math.random()*360},90%,70%)`,
+        tilt: Math.random()*10-10
+      });
+    }
+    function drawConfetti(){
+      ctx.clearRect(0,0,W,H);
+      for(let i=0;i<confetti.length;i++){
+        let c = confetti[i];
+        ctx.beginPath();
+        ctx.arc(c.x, c.y, c.r, 0, Math.PI*2, false);
+        ctx.fillStyle = c.color;
+        ctx.fill();
+      }
+      updateConfetti();
+    }
+    function updateConfetti(){
+      for(let i=0;i<confetti.length;i++){
+        let c = confetti[i];
+        c.y += Math.cos(c.d) + 1 + c.r/2;
+        c.x += Math.sin(0.01*c.d);
+        if(c.y > H){
+          c.y = -10;
+          c.x = Math.random()*W;
         }
-    </script>
+      }
+    }
+    setInterval(drawConfetti, 20);
+    window.addEventListener('resize', ()=>{
+      W = window.innerWidth; H = window.innerHeight;
+      canvas.width = W; canvas.height = H;
+    });
+
+    // Surprise popup (modal)
+    function showSurprise() {
+      document.getElementById('modalBg').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('modalBg').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
